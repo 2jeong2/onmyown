@@ -18,6 +18,31 @@
 
 <div id="wrap">
 
+	<header>
+	
+	</header>
+
+	<section>
+	
+		<div class="join-bigBox d-flex justify-content-center">
+			
+				<div class="join-box my-5">
+					
+					<label>전화번호</label><input type="text" class="form-control" placeholder="전화번호" id="phoneNumberInput">
+					<label>아이디</label><input type="text" class="form-control" placeholder="아이디" id="loginIdInput">
+					<label>이름</label><input type="text" class="form-control" placeholder="이름 " id="nameInput">
+					<label>비밀번호</label><input type="password" class="form-control" placeholder="비밀번호" id="passwordInput">
+					<label>비밀번호 확인</label><input type="password" class="form-control" placeholder="비밀번호 확인" id="passwordConfirmInput">
+					<label>이메일</label><input type="text" class="form-control" placeholder="이메일 주소" id="emailInput">
+					<button type="submit"  class="btn btn-secdondary btn-block mt-3">가입하기</button> 
+					
+				</div>
+		</div>
+	
+	</section>
+	<footer>
+	
+	</footer>
 </div>
 
 </body>
