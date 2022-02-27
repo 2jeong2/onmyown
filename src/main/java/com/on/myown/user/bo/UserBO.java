@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.on.myown.common.EncryptUtils;
 import com.on.myown.user.dao.UserDAO;
+import com.on.myown.user.model.User;
 
 @Service
 public class UserBO {
@@ -19,4 +20,9 @@ public class UserBO {
 		
 		return userDAO.insertUser(loginId, encPassword, userName, phoneNumber, email);
 	}
+	
+	public User selectUSer(String loginId, String password) {
+		return userDAO.selectUser(loginId,EncryptUtils.md5(password));
+	}
+	
 }

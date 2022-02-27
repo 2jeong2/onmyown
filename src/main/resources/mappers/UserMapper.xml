@@ -26,11 +26,27 @@
  			now(),
  			now()
  		)
- 	
- 
- 
  
  </insert>
+ <select id="selectUser" parameterType="map" resultType="com.on.myown.user.model.User">
+ SELECT 
+ 	`id`,
+ 	`loginId`,
+ 	`password`,
+ 	`userName`,
+ 	`phoneNumber`,
+ 	`email`,
+ 	`createdAt`,
+ 	`updatedAt`
+ FROM
+ 	`user`
+ WHERE
+ 	`loginId` = #{loginId}
+ 	AND `password`= #{password}
+ 
+ 
+ 
+ </select>
  
  
  
