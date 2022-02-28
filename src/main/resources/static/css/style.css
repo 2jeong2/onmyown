@@ -1,4 +1,25 @@
 @charset "UTF-8";
+header{
+	border-bottom:1px solid black;
+}
+.monthSection{
+	width:700px;
+	height:600px;
+}
+.date{
+	width:600px;
+}
 .month{
+	width:600px;
 	height:500px;
+	border:1px solid black;
+}
+.todolist-box{
+	height:350px;
+	width:700px;
+}
+.todolist{
+	height:300px;
+	width:600px;
+	border:1px solid black;
 }
