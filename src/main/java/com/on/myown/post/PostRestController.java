@@ -1,5 +1,6 @@
 package com.on.myown.post;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,8 +27,8 @@ public class PostRestController {
 	@PostMapping("/create")
 	public Map<String,String>todolist(
 			
-			
-			
+			@RequestParam(value="state", required=false)String state,
+			@RequestParam("day")String day,
 			@RequestParam("content")String content,
 			HttpServletRequest request
 			){
@@ -35,7 +36,7 @@ public class PostRestController {
 		HttpSession session = request.getSession();
 		int userId = (Integer)session.getAttribute("userId");
 		
-		int count = postBO.addTodo(userId, content);
+		int count = postBO.addTodo(userId,state,day, content);
 		Map<String,String>result = new HashMap<>();
 		if(count == 1) {
 			result.put("result", "success");

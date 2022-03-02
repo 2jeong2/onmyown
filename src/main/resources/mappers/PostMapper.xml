@@ -13,7 +13,7 @@
  	`state`,
  	`content`,
  	`createdAt`,
- 	`updateAt
+ 	`updatedAt`
  )
  VALUES(
  	#{userId},
