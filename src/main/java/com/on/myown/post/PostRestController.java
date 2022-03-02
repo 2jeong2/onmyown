@@ -26,8 +26,8 @@ public class PostRestController {
 	@PostMapping("/create")
 	public Map<String,String>todolist(
 			
-			@RequestParam("day")String day,
-			@RequestParam("state")String state,
+			
+			
 			@RequestParam("content")String content,
 			HttpServletRequest request
 			){
@@ -35,7 +35,7 @@ public class PostRestController {
 		HttpSession session = request.getSession();
 		int userId = (Integer)session.getAttribute("userId");
 		
-		int count = postBO.addTodo(userId, day, state, content);
+		int count = postBO.addTodo(userId, content);
 		Map<String,String>result = new HashMap<>();
 		if(count == 1) {
 			result.put("result", "success");

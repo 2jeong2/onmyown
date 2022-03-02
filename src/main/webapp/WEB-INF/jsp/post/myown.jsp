@@ -40,7 +40,7 @@
 				<div class="todolist my-4 ">  
 					<div class="d-flex">
 						
-						<input type="text" class="form-control my-3 ml-3 col-10" id="todoInput${post.id }">
+						<input type="text" class="form-control my-3 ml-3 col-10" id="contentInput">
 						<button class="my-3 mr-3 form-control">추가</button>
 					</div>
 					<div class="ml-3">
@@ -68,9 +68,10 @@
 			e.preventDefault();
 			//alert("");
 			
-			var todo = $("#todoInput").val().trim();
+			var content = $("#contentInput").val().trim();
 			
-			if(todo == ""){
+			
+			if(content == ""){
 				alert("내용을 입력해주세요");
 				return;
 			}
@@ -78,7 +79,7 @@
 			$.ajax({
 				type:"post",
 				url:"/post/todo/create",
-				data:{"userId":userId,"day":day,"state":state,"content":content},
+				data:{"content":content},
 				success:function(data){
 					if(data.result == "success"){
 						location.reload();
