@@ -1,24 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@ page import="java.util.Calendar" %>
-<%@ page import="java.util.Date" %>
-<%
-	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM");
-	
-	String monthString = "2021-03";
-	
-	Date date = formatter.parse(monthString);
-	
-	Calendar calendar = Calendar.getInstance();
-	calendar.setTime(date);
-	
-	int dayNum = calendar.get(Calendar.DAY_OF_WEEK);
-	
-	int day = (dayNum - 1) * -1 + 1;
-	int maxDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,13 +37,18 @@
 			<div class="monthSection d-flex justify-content-center">
 				<div class="my-4">
 					<h3><b>${userName }</b></h3>
-					<h5 class="date"><%=monthString%> do개수</h5>
+					<h5 class="date"> do개수</h5>
 					<input type="date" id="dayInput" class=""/>
 					
 					<!-- 달력박스 -->
 					<div class="month  p-1 mt-3" >
 						
-						<div id="calendar"></div>
+						<div id='calendar-container'>
+							<div id='calendar'></div>
+						</div>
+
+
+
 						
 					</div>
 				</div>
@@ -135,10 +124,14 @@
 			
 			
 		});
-		var calendarEl = document.getElementById('calendar');
+		var calendarEl = $('#calendar')[0];
+
+		
 	    
-	      var calendar = new FullCalendar.Calendar(calendarEl, {
-	        plugins: [ 'dayGrid' ]
+		var calendar = new FullCalendar.Calendar(calendarEl, {
+
+			
+	       
 	      });
 	    
 	      calendar.render();
