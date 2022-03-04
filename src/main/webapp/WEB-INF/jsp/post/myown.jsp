@@ -129,9 +129,25 @@
 		
 	    
 		var calendar = new FullCalendar.Calendar(calendarEl, {
-
+			height:'500px',
+			navLinks:true,//날짜를 선택하면 
 			
-	       
+			nowIndicator:true,
+			locale:'ko',
+			/* select:function(arg){
+				var title = prompt('Event Title:');
+				if(title){
+					calendar.addEvent({
+						title:title,
+						allDay:arg.allDay
+					})
+				}
+			} */
+	        headerToolbar:{
+	        	left:'',
+	        	center:'title',
+	        	
+	        }
 	      });
 	    
 	      calendar.render();
