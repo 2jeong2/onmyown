@@ -26,6 +26,21 @@
  
  
  </insert>
+ <select id="selectTodoList" resultType="com.on.myown.post.model.Todo">
+ 	SELECT
+ 		`id`,
+ 		`userId`,
+ 		`day`,
+ 		`state`,
+ 		`content`,
+ 		`createdAt`,
+ 		`updatedAt`
+ 	FROM
+ 		`do`
+ 	
+ 		
+ 
+ </select>
  
 
 

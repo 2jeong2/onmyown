@@ -13,21 +13,24 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>
+
 <link rel="stylesheet" href="/static/css/style.css" type="text/css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
-<!-- fullcalendar CDN -->
-<link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css' rel='stylesheet' />
-<script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js'></script>
-<!-- fullcalendar 언어 CDN -->
-<script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.css">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.js"></script>
+
+
 
 
 <title>메인페이지</title>
+
 </head>
 <body>
 
-<div id="wrap">
+<div class="wrap">
 
 	<c:import url="/WEB-INF/jsp/include/header.jsp"/>
 	<section class="my-4">
@@ -36,56 +39,127 @@
 		<div class=" d-flex justify-content-center">
 			<div class="monthSection d-flex justify-content-center">
 				<div class="my-4">
-					<h3><b>${userName }</b></h3>
-					<h5 class="date"> do개수</h5>
+					
+						<h3><b>${userName }</b></h3>
+						<h5 class="date"> do개수</h5>
+					
 					<input type="date" id="dayInput" class=""/>
 					
 					<!-- 달력박스 -->
-					<div class="month  p-1 mt-3" >
-						
-						<div id='calendar-container'>
-							<div id='calendar'></div>
+					<div class="month p-1 mt-3" >
+						<div id="calendar" >
+							<div id="calendar.dateClick"></div>
 						</div>
-
-
-
-						
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- 할일리스트 -->
 		<form id="todoBtn">
-		<div class="d-flex justify-content-center my-5">
-			<div class="todolist-box  d-flex justify-content-center">
-				<div class="todolist my-4 ">  
-					<div class="d-flex">
+		
+		<div class=" my-5 d-flex justify-content-center">
+			<div class="todolist-box p-4 d-flex justify-content-center">
+				<div class="todolist  my-4">  
+					<h1 class="ml-2">Feed</h1>
+					<div class="d-flex ">
 						
 						<input type="text" class="form-control my-3 ml-3 col-10" id="contentInput">
 						<button class="my-3 mr-3 form-control">추가</button>
 					</div>
-					<c:forEach var="todolist" items="${todoList }"></c:forEach>
-					<div class="ml-3">
-						<div>${todolist.content}</div>
+					
+					<c:forEach var="todoList" items="${todoList}">
+					<div class="ml-3 my-4">
+						<div><a class="moreBtn" href="#" data-toggle="modal" data-target="#exampleModalCenter"><b>${todoList.content}</b></a></div>
 						
 					</div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>
+		
 		</form>
 				
 	</section>
 	<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
 
-
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      	<c:forEach var="todoList" items="${todoList}">
+        <h5 class="modal-title" id="exampleModalLongTitle">${todoList.id}</h5>
+        </c:forEach>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+       	<a href="#" id="deleteBtn">삭제하기</a> 
+      </div>
+       <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
 
 </div>
 <script>
 
 	$(document).ready(function(){
+			var calendarEl = document.getElementById('calendar');
+			var calendar = new FullCalendar.Calendar(calendarEl, {
+	        	
+				timeZone: 'UTC',
+				aspectRatio: 1.5,
+	        	initialView: 'dayGridMonth',
+	        	selectable: true,
+	        	droppable:true,
+	        	editable:true,
+	        	height:'700px',
+	        	
+	        	headerToolbar:{
+	        		left:'prev,next today',
+	        		center: 'title',
+	        		right: 'dayGridMonth, timeGridWeek, timeGridDay'
+	        	},
+	        	contentHeight:'auto',
+	        	editable: true,
+	        	
+	            events: 'https://fullcalendar.io/api/demo-feeds/events.json?single-day&for-resource-timeline',
+	        	
+	            dateClick: function(date,jsEvent,view) {
+	            	return false;
+	        	      //alert('clicked ' + info.dateStr);
+	        	    },
+	        	    eventClick: function(calEvent, jsEvent, view) {
+	        	        return false;
+	        	    },
+	        	  
+
+
+	        	events:[
+	        		{
+	        			title:'All Day Event',
+	        			start: '2022-03-01'
+	        		}
+	        	]
+	        	
+	        });
+	        
+	        calendar.render();
+	        
+	   
+	    
+	   
+	        
+	       
+	        
 		$("#todoBtn").on("submit",function(e){
 			e.preventDefault();
-			//alert("");
+			alert("");
 			
 			var content = $("#contentInput").val().trim();
 			var day = $("#dayInput").val();
@@ -95,13 +169,17 @@
 				alert("내용을 입력해주세요");
 				return;
 			}
-			
+			if(day == ""){
+				alert("날짜 오류");
+				return;
+			}
 			$.ajax({
 				type:"post",
 				url:"/post/todo/create",
 				data:{"day":day,"content":content},
 				success:function(data){
 					if(data.result == "success"){
+						
 						location.reload();
 						
 					}else{
@@ -111,7 +189,12 @@
 					alert("할일추가 에러발생");
 					//"할일추가 에러발생"
 				}
-			})
+			});
+		
+			
+		
+			
+			
 			
 			
 			
@@ -124,34 +207,9 @@
 			
 			
 		});
-		var calendarEl = $('#calendar')[0];
-
 		
-	    
-		var calendar = new FullCalendar.Calendar(calendarEl, {
-			height:'500px',
-			navLinks:true,//날짜를 선택하면 
-			
-			nowIndicator:true,
-			locale:'ko',
-			/* select:function(arg){
-				var title = prompt('Event Title:');
-				if(title){
-					calendar.addEvent({
-						title:title,
-						allDay:arg.allDay
-					})
-				}
-			} */
-	        headerToolbar:{
-	        	left:'',
-	        	center:'title',
-	        	
-	        }
-	      });
-	    
-	      calendar.render();
 	});
+	
 
 
 

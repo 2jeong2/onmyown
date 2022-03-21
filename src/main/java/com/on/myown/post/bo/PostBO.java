@@ -19,12 +19,12 @@ public class PostBO {
 	
 	
 	public int addTodo(int userId,String state, String day,String content) {
-		return postDAO.insertTodo(userId,  "todo",day, content);
+		return postDAO.insertTodo(userId, "todo",day, content);
 	}
 	
 	public List<Todo> getTodoList(String day){
-		List<Todo> todoList = postDAO.selectTodoList();
-		return todoList;
+		
+		return postDAO.selectTodoList(day);
 	}
 	
 }

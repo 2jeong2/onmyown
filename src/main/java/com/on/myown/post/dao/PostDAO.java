@@ -20,7 +20,9 @@ public interface PostDAO {
 			@Param("day")String day,
 			@Param("content")String content);
 	
-	public List<Todo> selectTodoList();
+	public List<Todo> selectTodoList(@Param("day")String day);
+	
+	
 	
 	
 }

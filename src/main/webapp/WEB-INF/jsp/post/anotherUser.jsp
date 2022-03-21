@@ -13,33 +13,29 @@
 
 <link rel="stylesheet" href="/static/css/style.css" type="text/css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-<title>자랑하기</title>
+
+
+<title>다른유저들 페이지</title>
 </head>
 <body>
-
-<div id="wrap">
-
-	<c:import url="/WEB-INF/jsp/include/header.jsp"/>
+<div id="warp">
+	
+	<div class="header">
+		<div class="d-flex ">
+			<i class="bi bi-chevron-left "></i>
+			<input type="text" class="form-control" >
+		</div>
+	</div>
+	
 	<section>
-		<div class="my-do">
-		
-		</div>
-		
-		<div class="best-do d-flex justify-content-center">
-			<h5><b>${userName }</b><br> 한달동안 완료한 일의 개수:</h5>
-				
-			<%-- <c:forEach var="todo" items="${ }"> --%>
-			<div class="">
-				${userName }<br>
-				todo
-				todo
-			</div>
-		
-		</div>
+		<div></div>
+	
+	
 	</section>
+	${userLoginId}
+	
+	
 	<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
-
-
 </div>
 
 </body>

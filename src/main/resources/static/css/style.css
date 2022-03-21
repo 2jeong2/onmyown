@@ -1,25 +1,51 @@
 @charset "UTF-8";
-header{
-	border-bottom:1px solid black;
+
+.header{
+	background-color:#F6F6F6;
+	border-bottom:#F0F0F0 solid 1px;
+}
+.icon{
+	font-size:30px;
+}
+
+
+
+.login-box{
+	width:600px;
+	height:600px;
+}
+.join-box{
+	width:600px;
+	height:800px;
+}
+.underline{
+	border-top:0px;
+	border-left:0px;
+	border-right:0px;
+	border-bottom:solid 1px;
 }
 .monthSection{
-	width:700px;
-	height:600px;
+	width:1000px;
+	
+	
 }
 .date{
 	width:600px;
 }
 .month{
-	width:600px;
-	height:500px;
-	border:1px solid black;
+	width:900px;
+	
+	/* border:1px solid black; */
 }
 .todolist-box{
-	height:350px;
-	width:700px;
+	
+	width:1000px;
+	
 }
 .todolist{
-	height:300px;
-	width:600px;
-	border:1px solid black;
+	
+	width:900px;
+	
 }
+
+

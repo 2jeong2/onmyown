@@ -18,33 +18,33 @@
 
 <div id="wrap">
 
-	<header>
-	
-	</header>
+	<c:import url="/WEB-INF/jsp/include/header.jsp"/>
 	
 	<form id="signupForm">
 	<section>
 	
 		<div class="join-bigBox d-flex justify-content-center">
 			
-				<div class="join-box bg-info my-5">
-					<h3 class="my-4 text-center">회원가입</h3>
-					<label>아이디</label><input type="text" class="form-control" placeholder="아이디" id="loginIdInput">
-					<label>비밀번호</label><input type="password" class="form-control" placeholder="비밀번호" id="passwordInput">
-					<label>비밀번호 확인</label><input type="password" class="form-control" placeholder="비밀번호 확인" id="passwordConfirmInput">
-					<label>이름</label><input type="text" class="form-control" placeholder="이름 " id="userNameInput">
-					<label>전화번호</label><input type="text" class="form-control" placeholder="전화번호" id="phoneNumberInput">
-					<label>이메일</label><input type="text" class="form-control" placeholder="이메일 주소" id="emailInput">
-					<button type="submit"  class="btn btn-secdondary btn-block mt-3">가입하기</button> 
-					
+				<div class="join-box my-5 p-5">
+					<div>
+						<h3 class=" text-center"><b>회원가입</b></h3>
+						<div class="my-5">
+							<label><b>아이디</b></label><input type="text" class="underline form-control mb-5" placeholder="아이디" id="loginIdInput" >
+							<label><b>비밀번호</b></label><input type="password" class="underline form-control mb-5" placeholder="비밀번호" id="passwordInput">
+							<label><b>비밀번호 확인</b></label><input type="password" class="underline form-control mb-5" placeholder="비밀번호 확인" id="passwordConfirmInput">
+							<label><b>이름</b></label><input type="text" class="underline form-control mb-5" placeholder="이름 " id="userNameInput">
+							<label><b>전화번호</b></label><input type="text" class="underline form-control mb-5" placeholder="전화번호" id="phoneNumberInput">
+							<label><b>이메일</b></label><input type="text" class="underline form-control mb-5"  placeholder="이메일 주소" id="emailInput">
+							<button type="submit"  class="btn btn-secdondary btn-block my-5">가입하기</button> 
+						</div>
+						
+					</div>
 				</div>
 		</div>
 	
 	</section>
 	</form>
-	<footer class="text-center">
-		<small>Copyright 2022. myown  all rights reserved.</small>
-	</footer>
+	<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
 </div>
 
 <script>

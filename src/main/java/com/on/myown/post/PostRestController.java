@@ -1,6 +1,6 @@
 package com.on.myown.post;
 
-import java.util.Date;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,7 +36,7 @@ public class PostRestController {
 		HttpSession session = request.getSession();
 		int userId = (Integer)session.getAttribute("userId");
 		
-		int count = postBO.addTodo(userId,state,day, content);
+		int count = postBO.addTodo(userId,state,day,content);
 		Map<String,String>result = new HashMap<>();
 		if(count == 1) {
 			result.put("result", "success");

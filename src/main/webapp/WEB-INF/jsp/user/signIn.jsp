@@ -18,23 +18,23 @@
 
 <div id="wrap">
 
-	<header>
-	
-	
-	
-	</header>
+	<c:import url="/WEB-INF/jsp/include/header.jsp"/>
 	<Form id="loginForm">
 	<section>
 	
 		<!-- 로그인 박스 -->
-			<div class="login-box d-flex justify-content-center">
+			<div class="login-area mt-5  d-flex justify-content-center ">
 				<!-- logo,login -->
-				<div class="my-4 ">
-					<h3 class="text-center my-4">로그인</h3>
-					<input type="text" class="form-control" placeholder="아이디" id="loginIdInput">
-					<input type="password" class="form-control mt-1" placeholder="비밀번호" id="passwordInput">
-					<button type="submit"  class="btn btn-info btn-block my-4">로그인</button> 
-					<div class="my-2">비밀번호를 잊으셨나요?</div>
+				<div class="login-box  my-4  p-5">
+					<div>
+						<h3 class="text-center mt-2 mb-5"><b>로그인</b></h3>
+						<label><b>아이디</b></label>
+						<input type="text" class="form-control mb-3" placeholder="아이디" id="loginIdInput" >
+						<label><b>회원가입</b></label>
+						<input type="password" class="form-control mt-1" placeholder="비밀번호" id="passwordInput">
+						<button type="submit"  class="btn btn-info btn-block my-4">로그인</button> 
+						<div class="my-2 text-center">회원이 아니신가요? <a href="/user/signup_view">회원가입</a></div>
+					</div>
 				</div> 
 				
 				
@@ -45,9 +45,7 @@
 	
 	</section>
 	</Form>
-	<footer class="text-center">
-		<small>Copyright 2022. myown  all rights reserved.</small>
-	</footer>
+	<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
 
 
 
