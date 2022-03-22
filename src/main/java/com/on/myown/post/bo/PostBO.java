@@ -38,4 +38,8 @@ public class PostBO {
 		
 		return postDAO.deleteTodo(id);
 	}
+	
+	public int updateTodo(String day, String state, String content) {
+		return postDAO.updateTodo(day, state, content);
+	}
 }

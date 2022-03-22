@@ -101,6 +101,7 @@
       
       <div class="modal-body text-center">
        	<a href="#" id="deleteBtn">삭제하기</a> 
+       	<a href="#" id="updateBtn">수정하기</a> 
       </div>
       
     </div>
@@ -204,7 +205,7 @@
 				//postId를 모달의 삭제하기 버튼에 값을 부여한다.
 				//moreBtn을 누르는 순간 post-id부여
 				$("#deleteBtn").data("post-id",id);
-				
+				$("#updateBtn").data("post-id", id);
 				
 				
 				
@@ -232,6 +233,16 @@
 					}
 					
 				});
+			});
+			$("#updateBtn").on("click",function(e){
+				//alert("");
+				e.preventDefault();
+				
+				let id = $(this).data("post-id");
+				alert("id");
+				
+				
+				
 			});
 			
 			

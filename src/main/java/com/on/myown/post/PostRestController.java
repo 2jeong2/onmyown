@@ -67,6 +67,28 @@ public class PostRestController {
 		return result;
 	}
 	
+	@GetMapping("/update")
+	public Map<String,String> updateTodo(
+			@RequestParam("day")String day, 
+			@RequestParam("state")String state, 
+			@RequestParam("content")String content, 
+			HttpServletRequest request){
+		
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
+		
+		int count = postBO.updateTodo(day, state, content);
+		
+		Map<String,String> result = new HashMap<>();
+		
+		if(count == 1) {
+			result.put("result", "success");
+		}else {
+			result.put("result", "fail");
+		}
+		return result;
+	}
+	
 	
 	
 
