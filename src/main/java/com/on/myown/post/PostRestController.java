@@ -55,7 +55,16 @@ public class PostRestController {
 		HttpSession session = request.getSession();
 		int userId=(Integer)session.getAttribute("userId");
 		
-		int count = postBO.
+		int count = postBO.deleteTodo(id, userId);
+		
+		Map<String, String > result = new HashMap<>();
+		
+		if(count == 1) {
+			result.put("result","success");
+		}else {
+			result.put("result", "fail");
+		}
+		return result;
 	}
 	
 	

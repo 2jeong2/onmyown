@@ -24,7 +24,18 @@ public class PostBO {
 	
 	public List<Todo> getTodoList(String day){
 		
+		
+		
+		
 		return postDAO.selectTodoList(day);
+		
+		
+		
 	}
 	
+	public int deleteTodo(int id, int userId) {
+		
+		
+		return postDAO.deleteTodo(id);
+	}
 }

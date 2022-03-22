@@ -42,6 +42,15 @@
  
  </select>
  
+ <delete id="deleteTodo" parameterType="int">
+ DELETE FROM
+ 	`do`
+ WHERE
+ 	`id` = #{id}
+ 
+ 
+ </delete>
+ 
 
 
 

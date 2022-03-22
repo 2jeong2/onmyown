@@ -22,7 +22,9 @@ public interface PostDAO {
 	
 	public List<Todo> selectTodoList(@Param("day")String day);
 	
-	public Todo deleteTodo(@Param("id"))
+	public int deleteTodo(@Param("id")int id);
+	
+	public Todo selectTodo(@Param("id")int id);
 	
 	
 	

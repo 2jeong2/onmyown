@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <!DOCTYPE html>
@@ -61,7 +62,11 @@
 		<div class=" my-5 d-flex justify-content-center">
 			<div class="todolist-box p-4 d-flex justify-content-center">
 				<div class="todolist  my-4">  
-					<h1 class="ml-2">Feed</h1>
+					<div>
+						<a class="ml-2 display-4 logoBtn" href="#"><b>Feed</b></a>
+						
+					</div>
+					
 					<div class="d-flex ">
 						
 						<input type="text" class="form-control my-3 ml-3 col-10" id="contentInput">
@@ -69,8 +74,14 @@
 					</div>
 					
 					<c:forEach var="todoList" items="${todoList}">
-					<div class="ml-3 my-4">
-						<div><a class="moreBtn" href="#" data-toggle="modal" data-target="#exampleModalCenter"><b>${todoList.content}</b></a></div>
+					<div class="ml-3 my-4 ">
+						
+						<a class="moreBtn text-dark " data-post-id="${todoList.id }" href="#" data-toggle="modal" data-target="#exampleModalCenter">
+							<div class="d-flex justify-content-between">
+								<div><b>${todoList.content}</b></div>
+								<div><i class="bi bi-three-dots col-1" id=""></i></div>
+							</div>
+						</a>
 						
 					</div>
 					</c:forEach>
@@ -83,27 +94,13 @@
 	</section>
 	<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
 
+<!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       
-      	<c:forEach var="todoList" items="${todoList}">
-        <h5 class="modal-title" id="exampleModalLongTitle">1</h5>
-        </c:forEach>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      
       <div class="modal-body text-center">
-       	<i class="bi bi-trash3"><a href="#" id="deleteBtn"></a></i> 
-      
-       	<a href="#" id="updateBtn">수정하기</a> 
-      </div>
-       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">수정</button>
-        
-        
+       	<a href="#" id="deleteBtn">삭제하기</a> 
       </div>
       
     </div>
@@ -135,9 +132,9 @@
 	        	
 	            events: 'https://fullcalendar.io/api/demo-feeds/events.json?single-day&for-resource-timeline',
 	        	
-	            dateClick: function(date,jsEvent,view) {
+	            dateClick: function(info) {
+	        	      alert('clicked ' + info.dateStr);
 	            	return false;
-	        	      //alert('clicked ' + info.dateStr);
 	        	    },
 	        	    eventClick: function(calEvent, jsEvent, view) {
 	        	        return false;
@@ -157,7 +154,7 @@
 	        calendar.render();
 	        
 	   $('#calendar').on("click",function(){
-		   alert(info.dateStr);
+		 //  alert("");
 	   });
 	    
 	   
@@ -197,6 +194,51 @@
 					//"할일추가 에러발생"
 				}
 			});
+		});
+			
+			$(".moreBtn").on("click",function(e){
+				e.preventDefault();
+				//alert("");
+				let id = $(this).data("post-id");
+				
+				//postId를 모달의 삭제하기 버튼에 값을 부여한다.
+				//moreBtn을 누르는 순간 post-id부여
+				$("#deleteBtn").data("post-id",id);
+				
+				
+				
+				
+			});
+			
+			$("#deleteBtn").on("click",function(e){
+				e. preventDefault();
+				
+				let id = $(this).data("post-id");
+				alert(id);
+				
+				$.ajax({
+					type:"get",
+					url:"/post/todo/delete",
+					data:{"id":id},
+					success:function(data) {
+						if(data.result == "success") {
+							location.reload();
+						} else {
+							alert("삭제 실패!");
+						}
+						
+					}, error:function() {
+						alert("삭제 에러!!")
+					}
+					
+				});
+			});
+			
+			
+			$(".logoBtn").on("click",function(){
+				alert("");
+			});
+			
 		
 			
 		
@@ -213,7 +255,7 @@
 			         
 			
 			
-		});
+		
 		
 	});
 	
