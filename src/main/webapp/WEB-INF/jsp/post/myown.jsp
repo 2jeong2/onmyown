@@ -34,6 +34,7 @@
 
 	<c:import url="/WEB-INF/jsp/include/header.jsp"/>
 	<section class="my-4">
+		
 		<!-- 달력 -->
 		
 		<div class=" d-flex justify-content-center">
@@ -85,20 +86,24 @@
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      
       	<c:forEach var="todoList" items="${todoList}">
-        <h5 class="modal-title" id="exampleModalLongTitle">${todoList.id}</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">1</h5>
         </c:forEach>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
+      
       <div class="modal-body text-center">
-       	<a href="#" id="deleteBtn">삭제하기</a> 
+       	<i class="bi bi-trash3"><a href="#" id="deleteBtn"></a></i> 
+      
+       	<a href="#" id="updateBtn">수정하기</a> 
       </div>
        <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary">수정</button>
+        
+        
       </div>
       
     </div>
@@ -151,7 +156,9 @@
 	        
 	        calendar.render();
 	        
-	   
+	   $('#calendar').on("click",function(){
+		   alert(info.dateStr);
+	   });
 	    
 	   
 	        
@@ -159,7 +166,7 @@
 	        
 		$("#todoBtn").on("submit",function(e){
 			e.preventDefault();
-			alert("");
+			//alert("");
 			
 			var content = $("#contentInput").val().trim();
 			var day = $("#dayInput").val();
