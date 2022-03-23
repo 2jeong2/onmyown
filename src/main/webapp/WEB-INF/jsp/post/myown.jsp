@@ -64,8 +64,7 @@
 			<div class="todolist-box p-4 d-flex justify-content-center">
 				<div class="todolist  my-4">  
 					<div>
-						<a class="ml-2 display-4 logoBtn" href="#"><b>Feed</b></a>
-						
+						<h1><b>Feed</b></h1>
 					</div>
 					
 					<div class="d-flex ">
@@ -83,12 +82,14 @@
 								<div><i class="bi bi-three-dots col-1" id=""></i></div>
 							</div>
 						</a>
-						<div class=" d-flex">
-							<input type="hidden" class="form-control" id="updateInput${todoList.id }" value="${todoList.content }">
-							<button type="button"  class="reUpdateBtn" data-post-id="${todoList.id }">수정</button>
+						<div class=" d-flex " >
+							<input type="text" class="underline form-control" id="updateInput${todoList.id }" value="${todoList.content }">
+							<button type="button" class="reUpdateBtn form-control col-1" data-post-id="${todoList.id }">수정</button>
 						</div>
 						
 					</div>
+					
+					
 					</c:forEach>
 				</div>
 			</div>
@@ -105,8 +106,12 @@
     <div class="modal-content">
       
       <div class="modal-body text-center">
-       	<a href="#" id="deleteBtn">삭제하기</a> 
-       	<a href="#" id="updateBtn">수정하기</a> 
+       	<div class="mb-3">
+       		<a href="#" id="deleteBtn">삭제하기</a> 
+       	</div>
+       	<div>
+       		<a href="#" id="updateBtn">수정하기</a> 
+       	</div>
       </div>
       
     </div>
@@ -132,9 +137,9 @@
 	        	height:'700px',
 	        	
 	        	headerToolbar:{
-	        		left:'prev,next today',
+	        		left:'prev next',
 	        		center: 'title',
-	        		right: 'dayGridMonth, timeGridWeek, timeGridDay'
+	        		right: 'dayGridMonth'/* ' timeGridWeek, timeGridDay' */
 	        	},
 	        	contentHeight:'auto',
 	        	editable: true,
@@ -151,13 +156,15 @@
 	        	  
 
 
-	        	events:[
+	        	events:
+	        		[
 	        		{
 	        			title:'All Day Event',
 	        			start: '2022-03-01',
 	        			allDay: false
 	        		}
-	        	]
+	        	
+	        		]
 	        	
 	        });
 	        
@@ -254,8 +261,8 @@
 				let id = $(this).data("post-id");
 				let content = $("#updateInput"+id).val().trim();
 				
-				alert(id);
-				alert(content);
+				//alert(id);
+				//alert(content);
 				
 				if(content == ""){
 					alert("할일을 입력해주세요");
@@ -285,9 +292,7 @@
 		});
 			
 			
-		$(".logoBtn").on("click",function(){
-			alert("");
-		});
+		
 		
 		
 			
