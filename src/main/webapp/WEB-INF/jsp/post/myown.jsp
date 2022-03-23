@@ -42,10 +42,11 @@
 			<div class="monthSection d-flex justify-content-center">
 				<div class="my-4">
 					
-						<h3><b>${userName }</b></h3>
+						<h3 class="userName"><b>${userName }</b></h3>
 						<h5 class="date"> do개수</h5>
 					
 					<input type="date" id="dayInput" class=""/>
+					<button type="button" id="daySelectBtn">조회</button>
 					
 					<!-- 달력박스 -->
 					<div class="month p-1 mt-3" >
@@ -74,7 +75,7 @@
 					</div>
 					
 					<c:forEach var="todoList" items="${todoList}">
-					<div class="ml-3 my-4 ">
+					<div class="ml-3 my-4 " >
 						
 						<a class="moreBtn text-dark " data-post-id="${todoList.id }" href="#" data-toggle="modal" data-target="#exampleModalCenter">
 							<div class="d-flex justify-content-between">
@@ -82,6 +83,10 @@
 								<div><i class="bi bi-three-dots col-1" id=""></i></div>
 							</div>
 						</a>
+						<div class=" d-flex">
+							<input type="hidden" class="form-control" id="updateInput${todoList.id }" value="${todoList.content }">
+							<button type="button"  class="reUpdateBtn" data-post-id="${todoList.id }">수정</button>
+						</div>
 						
 					</div>
 					</c:forEach>
@@ -113,6 +118,9 @@
 
 	$(document).ready(function(){
 			var calendarEl = document.getElementById('calendar');
+			
+			
+			
 			var calendar = new FullCalendar.Calendar(calendarEl, {
 	        	
 				timeZone: 'UTC',
@@ -134,7 +142,7 @@
 	            events: 'https://fullcalendar.io/api/demo-feeds/events.json?single-day&for-resource-timeline',
 	        	
 	            dateClick: function(info) {
-	        	      alert('clicked ' + info.dateStr);
+	        	     location.href="/post/myown_view?day="+info.dateStr;
 	            	return false;
 	        	    },
 	        	    eventClick: function(calEvent, jsEvent, view) {
@@ -146,7 +154,8 @@
 	        	events:[
 	        		{
 	        			title:'All Day Event',
-	        			start: '2022-03-01'
+	        			start: '2022-03-01',
+	        			allDay: false
 	        		}
 	        	]
 	        	
@@ -155,7 +164,9 @@
 	        calendar.render();
 	        
 	   $('#calendar').on("click",function(){
-		 //  alert("");
+		   //alert("");
+		   
+		   
 	   });
 	    
 	   
@@ -205,7 +216,7 @@
 				//postId를 모달의 삭제하기 버튼에 값을 부여한다.
 				//moreBtn을 누르는 순간 post-id부여
 				$("#deleteBtn").data("post-id",id);
-				$("#updateBtn").data("post-id", id);
+				$("#reUpdateBtn").data("post-id", id);
 				
 				
 				
@@ -234,19 +245,31 @@
 					
 				});
 		});
+	
 			
-		$("#updateBtn").on("click",function(e){
-				alert("");
+		$(".reUpdateBtn").on("click",function(e){
+				//alert("");
 				e.preventDefault();
 				
 				let id = $(this).data("post-id");
-				alert(id);
+				let content = $("#updateInput"+id).val().trim();
 				
+				alert(id);
+				alert(content);
+				
+				if(content == ""){
+					alert("할일을 입력해주세요");
+					return;
+				}
+				if(id == ""){
+					alert("id 오류");
+					return;
+				}
 
 				$.ajax({
 					type:"get",
 					url:"/post/todo/update",
-					data:{"id":id},
+					data:{"id":id, "content":content},
 					success:function(data){
 						if(data.result == "success"){
 							location.reload();
@@ -262,9 +285,11 @@
 		});
 			
 			
-			$(".logoBtn").on("click",function(){
-				alert("");
-			});
+		$(".logoBtn").on("click",function(){
+			alert("");
+		});
+		
+		
 			
 		
 			

@@ -37,6 +37,8 @@
  		`updatedAt`
  	FROM
  		`do`
+ 	WHERE
+ 		date(`day`) = #{day}
  	
  		
  
@@ -54,7 +56,7 @@
  UPDATE`do`
  SET
  	`content`= #{content},
- 	`updatedAt`=now()
+ 	`updatedAt`= now()
  WHERE
  	`id` = #{id}
  

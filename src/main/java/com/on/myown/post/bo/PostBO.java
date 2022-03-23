@@ -1,6 +1,8 @@
 package com.on.myown.post.bo;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +26,14 @@ public class PostBO {
 	
 	public List<Todo> getTodoList(String day){
 		
-		
-		
+		if(day == null) {
+			Date date = new Date();
+			
+			SimpleDateFormat formatter = new SimpleDateFormat("YYYY-MM-dd");
+			
+			day = formatter.format(date);
+			
+		}
 		
 		return postDAO.selectTodoList(day);
 		

@@ -26,8 +26,9 @@
 }
 .monthSection{
 	width:1000px;
-	
-	
+}
+.userName{
+	font-size:35px;
 }
 .date{
 	width:600px;
