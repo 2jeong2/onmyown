@@ -27,9 +27,8 @@ public interface PostDAO {
 	public Todo selectTodo(@Param("id")int id);
 	
 	public int updateTodo(
-			@Param("day")String day,
-			@Param("state") String state,
-			@Param("content")String content);
+			@Param("content")String content,
+			@Param("id")int id);
 	
 	
 	

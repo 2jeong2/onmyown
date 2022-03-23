@@ -50,6 +50,15 @@
  
  
  </delete>
+ <update id="updateTodo" >
+ UPDATE`do`
+ SET
+ 	`content`= #{content},
+ 	`updatedAt`=now()
+ WHERE
+ 	`id` = #{id}
+ 
+ </update>
 
  
 

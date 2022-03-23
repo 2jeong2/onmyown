@@ -69,15 +69,14 @@ public class PostRestController {
 	
 	@GetMapping("/update")
 	public Map<String,String> updateTodo(
-			@RequestParam("day")String day, 
-			@RequestParam("state")String state, 
 			@RequestParam("content")String content, 
+			@RequestParam("id")int id,
 			HttpServletRequest request){
 		
 		HttpSession session = request.getSession();
 		int userId = (Integer)session.getAttribute("userId");
 		
-		int count = postBO.updateTodo(day, state, content);
+		int count = postBO.updateTodo(content, id);
 		
 		Map<String,String> result = new HashMap<>();
 		

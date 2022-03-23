@@ -197,7 +197,7 @@
 			});
 		});
 			
-			$(".moreBtn").on("click",function(e){
+		$(".moreBtn").on("click",function(e){
 				e.preventDefault();
 				//alert("");
 				let id = $(this).data("post-id");
@@ -209,9 +209,9 @@
 				
 				
 				
-			});
+		});
 			
-			$("#deleteBtn").on("click",function(e){
+		$("#deleteBtn").on("click",function(e){
 				e. preventDefault();
 				
 				let id = $(this).data("post-id");
@@ -233,17 +233,33 @@
 					}
 					
 				});
-			});
-			$("#updateBtn").on("click",function(e){
-				//alert("");
+		});
+			
+		$("#updateBtn").on("click",function(e){
+				alert("");
 				e.preventDefault();
 				
 				let id = $(this).data("post-id");
-				alert("id");
+				alert(id);
 				
-				
-				
-			});
+
+				$.ajax({
+					type:"get",
+					url:"/post/todo/update",
+					data:{"id":id},
+					success:function(data){
+						if(data.result == "success"){
+							location.reload();
+						}else{
+							alert("수정 실패!");
+						}
+					},error:function(){
+						alert("수정 에러!");
+					}
+					
+					
+				});
+		});
 			
 			
 			$(".logoBtn").on("click",function(){

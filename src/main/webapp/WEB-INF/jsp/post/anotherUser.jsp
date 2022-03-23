@@ -20,9 +20,9 @@
 <body>
 <div id="warp">
 	
-	<div class="header">
-		<div class="d-flex ">
-			<i class="bi bi-chevron-left "></i>
+	<div class="header ">
+		<div class="d-flex p-3">
+			<a href="#" class="pageback"><i class="bi bi-chevron-left  bg-info"></i></a>
 			<input type="text" class="form-control" >
 		</div>
 	</div>
@@ -32,11 +32,26 @@
 	
 	
 	</section>
-	${userLoginId}
+	
 	
 	
 	<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
 </div>
+<script>
+	
+	$(document).ready(function(){
+		
+		$(".pageback").on("click",function(){
+			
+			location.history.back();
+			
+		});
+	});
+
+
+
+
+</script>
 
 </body>
 </html>

@@ -44,7 +44,8 @@ public class PostController {
 	}
 	
 	@GetMapping("/anotherUser_view")
-	public String anotherUserView() {
+	public String anotherUserView(@RequestParam("loginId")String loginId,
+			@RequestParam("content")String content) {
 		
 		return "/post/anotherUser";
 	}
