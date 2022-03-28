@@ -13,9 +13,7 @@
 ##
 > 기본적인  todo list 어플 양식을 사이트화한 프로젝트
 > 로그인 기반
-> as possible. The idea is that a
-> Markdown-formatted document should be
-> publishable as-is, as plain text, without
+>
 
 
 ### 포트폴리오
@@ -29,9 +27,7 @@
 
 
 ```sh
-cd dillinger
-npm i
-node app
+k
 ```
 
 
