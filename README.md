@@ -29,14 +29,16 @@
 ## 주요기능
 
 * 회원가입
- * Package: [com.on.myown.user.*]
- * View : [/webapp/WEB-INf/jsp/user/*](https://github.com/2jeong2/onmyown/tree/master/src/main/java/com/on/myown/user)
+  * Package: [com.on.myown.user.*](https://github.com/2jeong2/onmyown/tree/master/src/main/java/com/on/myown/user)
+  * View : [/webapp/WEB-INf/jsp/user/*](https://github.com/2jeong2/onmyown/blob/master/src/main/webapp/WEB-INF/jsp/user/signUp.jsp)
 
 * 로그인
- * Package: [com.on.myown.user.*]
- * View : [/webapp/WEB-INf/jsp/user/*](https://github.com/2jeong2/onmyown/tree/master/src/main/java/com/on/myown/user)
+  * Package: [com.on.myown.user.*](https://github.com/2jeong2/onmyown/tree/master/src/main/java/com/on/myown/user)
+  * View : [/webapp/WEB-INf/jsp/user/*](https://github.com/2jeong2/onmyown/blob/master/src/main/webapp/WEB-INF/jsp/user/signIn.jsp)
  
-- 할 일 추가하기
+* 할 일 추가하기
+  * Package: [com.on.myown.post.*](https://github.com/2jeong2/onmyown/tree/master/src/main/java/com/on/myown/post)
+  * View : [/webapp/WEB-INF/jsp/post/*](https://github.com/2jeong2/onmyown/blob/master/src/main/webapp/WEB-INF/jsp/post/myown.jsp)
 
 
 ### 데모
@@ -57,3 +59,4 @@
 
 
  [포트폴리오]: <https://github.com/portfolio.pdf>
+
