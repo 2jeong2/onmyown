@@ -29,11 +29,13 @@
 ## 주요기능
 
 * 회원가입
- *package: [com.on.myown.user.*]
- * iew : [/webapp/WEB-INf/jsp/user/*]
+ * Package: [com.on.myown.user.*]
+ * View : [/webapp/WEB-INf/jsp/user/*](https://github.com/2jeong2/onmyown/tree/master/src/main/java/com/on/myown/user)
 
-- 로그인
-
+* 로그인
+ * Package: [com.on.myown.user.*]
+ * View : [/webapp/WEB-INf/jsp/user/*](https://github.com/2jeong2/onmyown/tree/master/src/main/java/com/on/myown/user)
+ 
 - 할 일 추가하기
 
 
