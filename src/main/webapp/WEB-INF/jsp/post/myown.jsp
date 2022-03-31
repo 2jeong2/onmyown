@@ -45,7 +45,7 @@
 						<h3 class="userName"><b>${userName }</b></h3>
 						<h5 class="date"> do개수</h5>
 					
-					<input type="date" id="dayInput" class=""/>
+					<input type="hidden" id="dayInput" class="" value="${param.day }"/>
 					<button type="button" id="daySelectBtn">조회</button>
 					
 					<!-- 달력박스 -->
@@ -156,15 +156,7 @@
 	        	  
 
 
-	        	events:
-	        		[
-	        		{
-	        			title:'All Day Event',
-	        			start: '2022-03-01',
-	        			allDay: false
-	        		}
 	        	
-	        		]
 	        	
 	        });
 	        
