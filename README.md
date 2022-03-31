@@ -12,6 +12,9 @@
 
 ## _프로젝트_
 
+### 포트폴리오 접속
+  * 주소 : [myown](http://13.125.140.150:8080/user/signin_view)
+  * test계정 : ID - wjddl PW - wjddl
 
 ### ✨ 프로젝트 설명
 
@@ -34,7 +37,7 @@
 - 데이터베이스, URL 설계
   - https://docs.google.com/spreadsheets/d/1ScTV0pKJ2y8QI4GoL8gUeMIzn8NZbTYyNR_50N6Bc8E/edit?usp=sharing
 
-## 주요기능
+### 주요기능
 
 * 회원가입
   * Package: [com.on.myown.user.*](https://github.com/2jeong2/onmyown/tree/master/src/main/java/com/on/myown/user)
@@ -50,8 +53,13 @@
 
 
 ### 데모
+ * 회원가입, 로그인
+   ![signIn, Up](https://user-images.githubusercontent.com/96058849/160984352-38522f7a-58a2-40c9-b784-902797a38bfd.gif)
 
-
+ * todo리스트 작성
+   ![todo_create](https://user-images.githubusercontent.com/96058849/160984712-c26ca2a4-63f0-40e6-aafb-2034252967c4.gif)
+ * 투두리스트 수정 삭제
+   ![todo_update](demo/post_update.gif)
 
 ### 외부 라이브러리 라이센스
 
