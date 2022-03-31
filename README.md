@@ -13,7 +13,7 @@
 ## _프로젝트_
 
 ### 포트폴리오 접속
-  * 주소 : [myown](http://13.125.140.150:8080/user/signin_view)
+  * 주소 : [myown](http://13.124.234.46:8080/user/signin_view)
   * test계정 : ID - wjddl PW - wjddl
 
 ### ✨ 프로젝트 설명
